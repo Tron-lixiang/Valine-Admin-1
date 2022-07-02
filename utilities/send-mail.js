@@ -79,7 +79,7 @@ exports.notice = (comment) => {
       function (error, response, body) {
         if (error) return console.log("发送微信提醒异常：", error);
         if (body) body = JSON.parse(body);
-        if (response.statusCode === 200 && body.errmsg === "success") console.log("已发送微信提醒");
+        if (response.statusCode === 200 && response.statusMessage==='OK') console.log("已发送微信提醒");
         else console.warn("微信提醒失败:", body);
       }
     );
